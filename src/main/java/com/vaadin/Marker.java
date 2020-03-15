@@ -1,9 +1,8 @@
 package com.vaadin;
 
 import java.time.ZonedDateTime;
-//TODO: import Messgrund?
 
-public class Marker {
+public class Marker { //TODO: implements Serializable, Cloneable ?
 
 
     private String idMessung;

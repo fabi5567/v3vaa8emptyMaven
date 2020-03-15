@@ -35,7 +35,7 @@ public class MyUI extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-        // triggered when a user enters your web application
+        // triggered when a user enters web application
         final VerticalLayout layout = new VerticalLayout();
         
         final TextField name = new TextField();
@@ -53,12 +53,15 @@ public class MyUI extends UI {
         //layout.addComponents(name, button, map);
 
         map.addBaseLayer(osmTileLayer, "OSM");
-
-        LMarker testMarker = new LMarker(50.258748, 12.040234);
-        map.addComponent(testMarker);
+        setMarker();
         map.setCenter(51.068656, 13.773228);
 
         setContent(map);
+    }
+
+    public void setMarker() {
+        LMarker testMarker = new LMarker(50.258748, 12.040234);
+        map.addComponent(testMarker);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
