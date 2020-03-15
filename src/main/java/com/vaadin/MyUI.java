@@ -53,16 +53,41 @@ public class MyUI extends UI {
         //layout.addComponents(name, button, map);
 
         map.addBaseLayer(osmTileLayer, "OSM");
-        setMarker();
+
+        setMarkerHeadquarter();
+        setMarker1();
+
+        LMarker testMarker2 = new LMarker(51.065533, 13.773641);
+        map.addComponent(testMarker2);
+        testMarker2.setPopup("Messid: 5, Messobjektname = Hallo1, ");
+
+        makeDummyMarker1();
+
         map.setCenter(51.068656, 13.773228);
 
         setContent(map);
     }
 
-    public void setMarker() {
-        LMarker testMarker = new LMarker(50.258748, 12.040234);
-        map.addComponent(testMarker);
+    public void setMarkerHeadquarter() {
+        LMarker headquarterMarker = new LMarker(51.068656, 13.773228);
+        headquarterMarker.setPopup("Herzlich willkommen bei conimon!");
+        map.addComponent(headquarterMarker);
     }
+
+    public void setMarker1() {
+        LMarker testMarker1 = new LMarker(50.258748, 12.040234);
+        map.addComponent(testMarker1);
+    }
+
+    public void makeDummyMarker1() {
+        Marker dummyMarkerData1 = new Marker(51.067239, 13.776474, "a", "b", "c");
+        LMarker dummyMarker1 = new LMarker(dummyMarkerData1.getLati(), dummyMarkerData1.getLongi());
+        dummyMarker1.setPopup(dummyMarkerData1.toString());
+        map.addComponent(dummyMarker1);
+    }
+
+
+
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)

@@ -4,6 +4,8 @@ import java.time.ZonedDateTime;
 
 public class Marker { //TODO: implements Serializable, Cloneable ?
 
+    private double lati;
+    private double longi;
 
     private String idMessung;
     private String idMessobjekt;
@@ -14,11 +16,47 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
     private String grundBeschreibung = "";
     private Messgrund messgrund; //enum besser?
 
-    public int beschleunigungMax;
-    public double frequenz;
+    private int beschleunigungMax;
+    private double frequenz;
+
+
+
+    public Marker(double lati, double longi, String idMessung, String idMessobjekt, String nameMessobjekt) {
+        this.lati = lati;
+        this.longi = longi;
+        this.idMessung = idMessung;
+        this.idMessobjekt = idMessobjekt;
+        this.nameMessobjekt = nameMessobjekt;
+    }
+
+    //TODO: Overwrite?
+    public String toString() {
+        return "ID der Messung: " + this.idMessung + "<br> "
+                + "ID des Messobjekts: " + this.idMessobjekt + "<br> "
+                + "Name des Messobjektes: " + this.nameMessobjekt;
+    }
+
+
 
 
 //TODO: Setter beschreiben
+    public double getLati() {
+        return lati;
+    }
+
+    public void setLati(double lati) {
+        this.lati = lati;
+    }
+
+    public double getLongi() {
+        return longi;
+    }
+
+    public void setLongi(double longi) {
+        this.longi = longi;
+    }
+
+
     /**
      * Get the value of idMessung
      *
