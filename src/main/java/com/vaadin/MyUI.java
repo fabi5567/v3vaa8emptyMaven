@@ -34,7 +34,7 @@ public class MyUI extends UI {
             layout.addComponent(new Label("Thanks " + name.getValue() 
                     + ", it works!"));
         });
-        
+
         layout.addComponents(name, button);
         
         setContent(layout);

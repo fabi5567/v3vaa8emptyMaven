@@ -26,6 +26,12 @@
           <element id="library" level="project" name="Maven: com.vaadin.external.slf4j:vaadin-slf4j-jdk14:1.6.1" />
           <element id="library" level="project" name="Maven: com.vaadin:vaadin-client-compiled:8.10.2" />
           <element id="library" level="project" name="Maven: com.vaadin:vaadin-themes:8.10.2" />
+          <element id="library" level="project" name="Maven: org.vaadin.addon:v-leaflet:1.1.1" />
+          <element id="library" level="project" name="Maven: org.peimari:g-leaflet:1.0.16" />
+          <element id="library" level="project" name="Maven: org.locationtech.jts:jts-core:1.16.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.9.8" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.8" />
         </element>
       </element>
       <element id="directory" name="META-INF">
