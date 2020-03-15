@@ -15,7 +15,7 @@ import org.vaadin.addon.leaflet.LMap;
 import org.vaadin.addon.leaflet.LMarker;
 import org.vaadin.addon.leaflet.LOpenStreetMapLayer;
 import org.vaadin.addon.leaflet.LTileLayer;
-import com.vaadin.ui.AbstractComponent;
+import com.vaadin.ui.AbstractComponent; //fuer immediate
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -48,24 +48,15 @@ public class MyUI extends UI {
                     + ", it works!"));
         });
 
-        /*
-        leafletMap.setImmediate(true);
-        final LTileLayer baselayer = new LTileLayer();
-        baselayer.setAttributionString( "OpenStreetMap" );
-        baselayer.setUrl( "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" );
-        leafletMap.addLayer( baselayer );
-        leafletMap.setWidth("200px");
-        leafletMap.setHeight("100px");
-        leafletMap.setZoomLevel(3);
-        LMarker leafletMarker = new LMarker(-21.54, 30.76);
-        leafletMap.addComponent(leafletMarker);
-        leafletMap.setCenter(-21.54, 30.76);
-        */
 
         // Geht nicht, da map nicht vom Typ component
         //layout.addComponents(name, button, map);
 
         map.addBaseLayer(osmTileLayer, "OSM");
+
+        LMarker testMarker = new LMarker(50.258748, 12.040234);
+        map.addComponent(testMarker);
+        map.setCenter(51.068656, 13.773228);
 
         setContent(map);
     }
