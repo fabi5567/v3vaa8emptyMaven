@@ -14,6 +14,7 @@ import org.vaadin.addon.leaflet.LTileLayer;
 
 import java.time.Period;
 import java.time.ZonedDateTime;
+import java.util.Random;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -72,13 +73,16 @@ public class MyUI extends UI {
     public void generateDummyMarker(){
         makeDummyMarker(51.066127, 13.741090,
                 "Linie S1", "f16d3", "Bahnhof Dresden-Neustadt",
-                ZonedDateTime.now().minus(Period.ofDays(4)), "Vorausschauende Instandhaltung",
+                ZonedDateTime.now().minus(Period.ofDays(5)), "Vorausschauende Instandhaltung",
                 "Vorzeitiger Austausch der Gleise nötig?", 5, 24056.6);
         makeDummyMarker(51.072093, 13.746551,
                 "Linie S1", "f16d4", "Bahnhof Dresden Bischofsplatz",
-                ZonedDateTime.now().minus(Period.ofDays(5)), "Vorausschauende Instandhaltung",
+                ZonedDateTime.now().minus(Period.ofDays(4)), "Vorausschauende Instandhaltung",
                 "Vorzeitiger Austausch der Gleise nötig?", 3, 24274.9);
-        makeDummyMarker();
+        makeDummyMarker(51.055777, 13.724295,
+                "Linie S1", "f16d5", "Bahnhof Dresden Mitte",
+                ZonedDateTime.now().minus(Period.ofDays(3)), "Vorausschauende Instandhaltung",
+                "Vorzeitiger Austausch der Gleise nötig?", 7, 23856.3);
     }
 
 
@@ -96,7 +100,12 @@ public class MyUI extends UI {
                                 double frequenz) {
         Marker dummyMarkerData = new Marker(lati, longi, idMessung, idMessobjekt, nameMessobjekt, zeitpunktMessstart, grundTyp, grundBeschreibung, anzahlSensoren, frequenz);
         LMarker dummyMarker = new LMarker(dummyMarkerData.getLati(), dummyMarkerData.getLongi());
-        dummyMarker.setPopup(dummyMarkerData.toString());
+        if (new Random().nextBoolean() == false) {
+            dummyMarker.setPopup(dummyMarkerData.toString());
+        } else {
+            dummyMarker.setPopup(dummyMarkerData.toShortString());
+        }
+
         map.addComponent(dummyMarker);
     }
 

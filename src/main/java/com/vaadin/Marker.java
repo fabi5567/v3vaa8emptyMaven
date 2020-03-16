@@ -47,22 +47,22 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
 
     //TODO: Overwrite?
     public String toShortString() {
-        return "ID der Messung: " + this.idMessung + "<br> "
-                + "ID des Messobjektes: " + this.idMessobjekt + "<br> "
-                + "Name des Messobjektes: " + this.nameMessobjekt;
+        return "<b>ID der Messung: </b>" + this.idMessung + "<br> "
+                + "<b>ID des Messobjektes: </b>" + this.idMessobjekt + "<br> "
+                + "<b>Name des Messobjektes: </b>" + this.nameMessobjekt;
     }
 
     public String toString() {
-        return "ID der Messung: " + this.idMessung + "<br> "
-                + "ID des Messobjektes: " + this.idMessobjekt + "<br> "
-                + "Name des Messobjektes: " + this.nameMessobjekt + "<br> "
-                + "Startzeitpunkt der Messung: " + this.zeitpunktMessstart.getDayOfMonth() + "."
+        return "<b>ID der Messung: </b>" + this.idMessung + "<br> "
+                + "<b>ID des Messobjektes: </b>" + this.idMessobjekt + "<br> "
+                + "<b>Name des Messobjektes: </b>" + this.nameMessobjekt + "<br> "
+                + "<b>Startzeitpunkt der Messung: </b>" + this.zeitpunktMessstart.getDayOfMonth() + "."
                     + this.zeitpunktMessstart.getMonth().getValue() + "." + this.zeitpunktMessstart.getYear() + " um "
                     + this.zeitpunktMessstart.getHour() + ":" + this.zeitpunktMessstart.getMinute() + " Uhr" +   "<br> "
-                + "Grund der Messung (Typ): " + this.grundTyp + "<br> "
-                + "Grund der Messung (Beschreibung): " + this.grundBeschreibung + "<br> "
-                + "Anzahl der eingesetzten Sensoren: " + this.anzahlSensoren + "<br> "
-                + "Maximal gemessene Frequenz: " + this.frequenz + " Hz";
+                + "<b>Grund der Messung (Typ): </b>" + this.grundTyp + "<br> "
+                + "<b>Grund der Messung (Beschreibung): </b>" + this.grundBeschreibung + "<br> "
+                + "<b>Anzahl der eingesetzten Sensoren: </b>" + this.anzahlSensoren + "<br> "
+                + "<b>Maximal gemessene Frequenz: </b>" + this.frequenz + " Hz";
     }
 
 
