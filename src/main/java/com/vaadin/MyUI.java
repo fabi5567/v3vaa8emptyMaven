@@ -12,6 +12,9 @@ import org.vaadin.addon.leaflet.LMarker;
 import org.vaadin.addon.leaflet.LOpenStreetMapLayer;
 import org.vaadin.addon.leaflet.LTileLayer;
 
+import java.time.Period;
+import java.time.ZonedDateTime;
+
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
  * (or tab) or some part of an HTML page where a Vaadin application is embedded.
@@ -68,18 +71,34 @@ public class MyUI extends UI {
 
     public void generateDummyMarker(){
         makeDummyMarker(51.066127, 13.741090,
-                "Bahnhof Dresden-Neustadt", "f16d3", "Gleis 1");
+                "Linie S1", "f16d3", "Bahnhof Dresden-Neustadt",
+                ZonedDateTime.now().minus(Period.ofDays(4)), "Vorausschauende Instandhaltung",
+                "Vorzeitiger Austausch der Gleise nötig?", 5, 24056.6);
         makeDummyMarker(51.072093, 13.746551,
-                "Bahnhof Dresden Bischofsplatz", "f16d4", "Gleis 2");
+                "Linie S1", "f16d4", "Bahnhof Dresden Bischofsplatz",
+                ZonedDateTime.now().minus(Period.ofDays(5)), "Vorausschauende Instandhaltung",
+                "Vorzeitiger Austausch der Gleise nötig?", 3, 24274.9);
+        makeDummyMarker();
     }
 
+
+    /*
     public void makeDummyMarker(double lati, double longi, String idMessung, String idMessobjekt, String nameMessobjekt) {
         Marker dummyMarkerData = new Marker(lati, longi, idMessung, idMessobjekt, nameMessobjekt);
+        LMarker dummyMarker = new LMarker(dummyMarkerData.getLati(), dummyMarkerData.getLongi());
+        dummyMarker.setPopup(dummyMarkerData.toShortString());
+        map.addComponent(dummyMarker);
+    }
+     */
+
+    public void makeDummyMarker(double lati, double longi, String idMessung, String idMessobjekt, String nameMessobjekt,
+                                ZonedDateTime zeitpunktMessstart, String grundTyp, String grundBeschreibung, int anzahlSensoren,
+                                double frequenz) {
+        Marker dummyMarkerData = new Marker(lati, longi, idMessung, idMessobjekt, nameMessobjekt, zeitpunktMessstart, grundTyp, grundBeschreibung, anzahlSensoren, frequenz);
         LMarker dummyMarker = new LMarker(dummyMarkerData.getLati(), dummyMarkerData.getLongi());
         dummyMarker.setPopup(dummyMarkerData.toString());
         map.addComponent(dummyMarker);
     }
-
 
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

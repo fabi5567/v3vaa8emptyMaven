@@ -12,15 +12,15 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
     private String nameMessobjekt = "";
 
     private ZonedDateTime zeitpunktMessstart;
+
     private String grundTyp = "";
     private String grundBeschreibung = "";
-    private Messgrund messgrund; //enum besser?
 
-    private int beschleunigungMax;
+    private int anzahlSensoren;
     private double frequenz;
 
 
-
+    /*
     public Marker(double lati, double longi, String idMessung, String idMessobjekt, String nameMessobjekt) {
         this.lati = lati;
         this.longi = longi;
@@ -28,14 +28,42 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
         this.idMessobjekt = idMessobjekt;
         this.nameMessobjekt = nameMessobjekt;
     }
+    */
+
+    public Marker(double lati, double longi, String idMessung, String idMessobjekt, String nameMessobjekt,
+                  ZonedDateTime zeitpunktMessstart, String grundTyp, String grundBeschreibung, int anzahlSensoren,
+                  double frequenz) {
+        this.lati = lati;
+        this.longi = longi;
+        this.idMessung = idMessung;
+        this.idMessobjekt = idMessobjekt;
+        this.nameMessobjekt = nameMessobjekt;
+        this.zeitpunktMessstart = zeitpunktMessstart;
+        this.grundTyp = grundTyp;
+        this.grundBeschreibung = grundBeschreibung;
+        this.anzahlSensoren = anzahlSensoren;
+        this.frequenz = frequenz;
+    }
 
     //TODO: Overwrite?
-    public String toString() {
+    public String toShortString() {
         return "ID der Messung: " + this.idMessung + "<br> "
                 + "ID des Messobjektes: " + this.idMessobjekt + "<br> "
                 + "Name des Messobjektes: " + this.nameMessobjekt;
     }
 
+    public String toString() {
+        return "ID der Messung: " + this.idMessung + "<br> "
+                + "ID des Messobjektes: " + this.idMessobjekt + "<br> "
+                + "Name des Messobjektes: " + this.nameMessobjekt + "<br> "
+                + "Startzeitpunkt der Messung: " + this.zeitpunktMessstart.getDayOfMonth() + "."
+                    + this.zeitpunktMessstart.getMonth().getValue() + "." + this.zeitpunktMessstart.getYear() + " um "
+                    + this.zeitpunktMessstart.getHour() + ":" + this.zeitpunktMessstart.getMinute() + " Uhr" +   "<br> "
+                + "Grund der Messung (Typ): " + this.grundTyp + "<br> "
+                + "Grund der Messung (Beschreibung): " + this.grundBeschreibung + "<br> "
+                + "Anzahl der eingesetzten Sensoren: " + this.anzahlSensoren + "<br> "
+                + "Maximal gemessene Frequenz: " + this.frequenz + " Hz";
+    }
 
 
 
@@ -172,12 +200,12 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
      *
      * @return the value of beschleunigungMax
      */
-    public int getBeschleunigungMax() {
-        return beschleunigungMax;
+    public int getAnzahlSensoren() {
+        return anzahlSensoren;
     }
 
-    public void setBeschleunigungMax(int beschleunigungMax) {
-        this.beschleunigungMax = beschleunigungMax;
+    public void setAnzahlSensoren(int anzahlSensoren) {
+        this.anzahlSensoren = anzahlSensoren;
     }
 
     /**
