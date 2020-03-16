@@ -2,24 +2,54 @@ package com.vaadin;
 
 import java.time.ZonedDateTime;
 
+/**
+ * Repräsentiert Marker mit geforderten Attributen,
+ * wird später mit LMarker aus dem v-Leaflet Add-On verknüpft
+ * @author Fabian Wendel
+ */
 public class Marker { //TODO: implements Serializable, Cloneable ?
 
+    /**
+     * Längengrad
+     */
     private double lati;
+    /** Breitengrad */
     private double longi;
 
+    /** ID (String) der Messung */
     private String idMessung;
+    /** ID (String) des Messobjektes */
     private String idMessobjekt;
-    private String nameMessobjekt = "";
+    /** Name des Messobjektes */
+    private String nameMessobjekt;
 
+    /** Startzeitpunkt der Messung (Java ZonedDateTime) */
     private ZonedDateTime zeitpunktMessstart;
 
+    /** Grund der Messung, Typ (String) */
     private String grundTyp = "";
+    /** Grund der Messung, Beschreibung (String) */
     private String grundBeschreibung = "";
 
+    /** Anzahl der verwendeten Sensoren */
     private int anzahlSensoren;
+    /** Maximale gemessene Frequenz */
     private double frequenz;
 
 
+    /**
+     * Konstruktor für ein Objekt der Klasse Marker
+     * @param lati Längengrad
+     * @param longi Breitengrad
+     * @param idMessung ID der Messung
+     * @param idMessobjekt ID des Messobjektes
+     * @param nameMessobjekt Name des Messobjektes
+     * @param zeitpunktMessstart Startzeitpunkt der Messung
+     * @param grundTyp Grund der Messung, Typ
+     * @param grundBeschreibung Grund der Messung, Beschreibung
+     * @param anzahlSensoren Anzahl der verwendeten Sensoren
+     * @param frequenz Maximale gemessene Frequenz
+     */
     public Marker(double lati, double longi, String idMessung, String idMessobjekt, String nameMessobjekt,
                   ZonedDateTime zeitpunktMessstart, String grundTyp, String grundBeschreibung, int anzahlSensoren,
                   double frequenz) {
@@ -36,12 +66,11 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
     }
 
     //TODO: Overwrite?
-    public String toShortString() {
-        return "<b>ID der Messung: </b>" + this.idMessung + "<br> "
-                + "<b>ID des Messobjektes: </b>" + this.idMessobjekt + "<br> "
-                + "<b>Name des Messobjektes: </b>" + this.nameMessobjekt;
-    }
 
+    /**
+     * Ausgabe der Eigenschaften des Markers als Text für das Popup
+     * @return Eigenschaften des Markers als String
+     */
     public String toString() {
         return "<b>ID der Messung: </b>" + this.idMessung + "<br> "
                 + "<b>ID des Messobjektes: </b>" + this.idMessobjekt + "<br> "
@@ -55,13 +84,30 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
                 + "<b>Maximal gemessene Frequenz: </b>" + this.frequenz + " Hz";
     }
 
+    /**
+     * Kurze Version der Ausgabe der Eigenschaften des Markers als Text für das Popup;
+     * Für bessere Übersichtlichkeit
+     * @return kurze Version der Eigenschaften des Markers als String
+     */
+    public String toShortString() {
+        return "<b>ID der Messung: </b>" + this.idMessung + "<br> "
+                + "<b>ID des Messobjektes: </b>" + this.idMessobjekt + "<br> "
+                + "<b>Name des Messobjektes: </b>" + this.nameMessobjekt;
+    }
 
 
-//TODO: Setter beschreiben
+    /**
+     * Liefert den Längengrad des gewählten Markers zurück
+     * @return Längengrad des Markers
+     */
     public double getLati() {
         return lati;
     }
 
+    /**
+     * Setzen eines neuen Längengrades für den Marker
+     * @param lati Längengrad des Markers
+     */
     public void setLati(double lati) {
         this.lati = lati;
     }
@@ -74,11 +120,6 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
         this.longi = longi;
     }
 
-    /**
-     * Get the value of idMessung
-     *
-     * @return the value of idMessung
-     */
     public String getIdMessung() {
         return idMessung;
     }
@@ -87,11 +128,6 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
         this.idMessung = idMessung;
     }
 
-    /**
-     * Get the value of idMessobjekt
-     *
-     * @return the value of idMessobjekt
-     */
     public String getIdMessobjekt() {
         return idMessobjekt;
     }
@@ -100,11 +136,6 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
         this.idMessobjekt = idMessobjekt;
     }
 
-    /**
-     * Get the value of nessobjekt
-     *
-     * @return the value of nameMessobjekt
-     */
     public String getNameMessobjekt() {
         return nameMessobjekt;
     }
@@ -113,11 +144,6 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
         this.nameMessobjekt = nameMessobjekt;
     }
 
-    /**
-     * Get the value of zeitpunktMessstart
-     *
-     * @return the value of zeitpunktMessstart
-     */
     public ZonedDateTime getZeitpunktMessstart() {
         return zeitpunktMessstart;
     }
@@ -126,49 +152,22 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
         this.zeitpunktMessstart = zeitpunktMessstart;
     }
 
-    /**
-     * Get the value of grundTyp
-     *
-     * @return the value of grundTyp
-     */
     public String getGrundTyp() {
         return grundTyp;
     }
 
-    /**
-     * Set the value of grundTyp
-     *
-     * @param grundTyp
-     *            new value of grundTyp
-     */
     public void setGrundTyp(String grundTyp) {
         this.grundTyp = grundTyp;
     }
 
-    /**
-     * Get the value of grundBeschreibung
-     *
-     * @return the value of grundBeschreibung
-     */
     public String getGrundBeschreibung() {
         return grundBeschreibung;
     }
 
-    /**
-     * Set the value of grundBeschreibung
-     *
-     * @param grundBeschreibung
-     *            new value of grundBeschreibung
-     */
     public void setGrundBeschreibung(String grundBeschreibung) {
         this.grundBeschreibung = grundBeschreibung;
     }
 
-    /**
-     * Get the value of beschleunigungMax
-     *
-     * @return the value of beschleunigungMax
-     */
     public int getAnzahlSensoren() {
         return anzahlSensoren;
     }
@@ -177,11 +176,6 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
         this.anzahlSensoren = anzahlSensoren;
     }
 
-    /**
-     * Get the value of frequenz
-     *
-     * @return the value of frequenz
-     */
     public double getFrequenz() {
         return frequenz;
     }
