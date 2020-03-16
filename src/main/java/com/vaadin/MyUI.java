@@ -32,38 +32,19 @@ public class MyUI extends UI {
     // Blendet OSM-Karte mit ein
     private LTileLayer osmTileLayer = new LOpenStreetMapLayer();
 
+    // Wird ausgelöst, wenn ein Nutzer die Webanwendung öffnet
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-        // triggered when a user enters web application
-
-        /*
-        final VerticalLayout layout = new VerticalLayout();
-        
-        final TextField name = new TextField();
-        name.setCaption("Type your name here:");
-
-        Button button = new Button("Click Me");
-        // Button whose click listener dynamically adds a new Label component to the main layout
-        button.addClickListener(e -> {
-            layout.addComponent(new Label("Thanks " + name.getValue() 
-                    + ", it works!"));
-        });
-        */
-
-        // Geht nicht, da map nicht vom Typ component
-        //layout.addComponents(name, button, map);
-
         map.addBaseLayer(osmTileLayer, "OSM");
+        map.setCenter(51.068656, 13.773228);
 
         setMarkerHeadquarter();
-
         generateDummyMarker();
-
-        map.setCenter(51.068656, 13.773228);
 
         setContent(map);
     }
 
+    // Methoden die Marker erzeugen
     public void setMarkerHeadquarter() {
         LMarker headquarterMarker = new LMarker(51.068656, 13.773228);
         headquarterMarker.setPopup("Herzlich willkommen bei conimon!");
@@ -85,16 +66,6 @@ public class MyUI extends UI {
                 "Vorzeitiger Austausch der Gleise nötig?", 7, 23856.3);
     }
 
-
-    /*
-    public void makeDummyMarker(double lati, double longi, String idMessung, String idMessobjekt, String nameMessobjekt) {
-        Marker dummyMarkerData = new Marker(lati, longi, idMessung, idMessobjekt, nameMessobjekt);
-        LMarker dummyMarker = new LMarker(dummyMarkerData.getLati(), dummyMarkerData.getLongi());
-        dummyMarker.setPopup(dummyMarkerData.toShortString());
-        map.addComponent(dummyMarker);
-    }
-     */
-
     public void makeDummyMarker(double lati, double longi, String idMessung, String idMessobjekt, String nameMessobjekt,
                                 ZonedDateTime zeitpunktMessstart, String grundTyp, String grundBeschreibung, int anzahlSensoren,
                                 double frequenz) {
@@ -105,11 +76,10 @@ public class MyUI extends UI {
         } else {
             dummyMarker.setPopup(dummyMarkerData.toShortString());
         }
-
         map.addComponent(dummyMarker);
     }
 
-
+    // Abschlussklausel
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = MyUI.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {

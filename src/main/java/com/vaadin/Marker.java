@@ -20,16 +20,6 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
     private double frequenz;
 
 
-    /*
-    public Marker(double lati, double longi, String idMessung, String idMessobjekt, String nameMessobjekt) {
-        this.lati = lati;
-        this.longi = longi;
-        this.idMessung = idMessung;
-        this.idMessobjekt = idMessobjekt;
-        this.nameMessobjekt = nameMessobjekt;
-    }
-    */
-
     public Marker(double lati, double longi, String idMessung, String idMessobjekt, String nameMessobjekt,
                   ZonedDateTime zeitpunktMessstart, String grundTyp, String grundBeschreibung, int anzahlSensoren,
                   double frequenz) {
@@ -84,7 +74,6 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
         this.longi = longi;
     }
 
-
     /**
      * Get the value of idMessung
      *
@@ -123,8 +112,6 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
     public void setNameMessobjekt(String nameMessobjekt) {
         this.nameMessobjekt = nameMessobjekt;
     }
-
-
 
     /**
      * Get the value of zeitpunktMessstart
@@ -176,24 +163,6 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
     public void setGrundBeschreibung(String grundBeschreibung) {
         this.grundBeschreibung = grundBeschreibung;
     }
-
-    /*
-    /**
-     * Get the value of messgrund
-     *
-     * @return the value of messgrund
-     */
-    /*
-    public Messgrund getMessgrund() {
-        return messgrund;
-    }
-
-    public void setMessgrund(Messgrund messgrund) {
-        this.messgrund = messgrund;
-    }
-    */
-
-
 
     /**
      * Get the value of beschleunigungMax
