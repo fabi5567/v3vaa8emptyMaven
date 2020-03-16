@@ -7,11 +7,9 @@ import java.time.ZonedDateTime;
  * wird später mit LMarker aus dem v-Leaflet Add-On verknüpft
  * @author Fabian Wendel
  */
-public class Marker { //TODO: implements Serializable, Cloneable ?
+public class Marker {
 
-    /**
-     * Längengrad
-     */
+    /** Längengrad */
     private double lati;
     /** Breitengrad */
     private double longi;
@@ -64,8 +62,6 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
         this.anzahlSensoren = anzahlSensoren;
         this.frequenz = frequenz;
     }
-
-    //TODO: Overwrite?
 
     /**
      * Ausgabe der Eigenschaften des Markers als Text für das Popup
