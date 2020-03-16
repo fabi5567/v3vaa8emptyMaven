@@ -69,6 +69,8 @@ public class MyUI extends UI {
     public void generateDummyMarker(){
         makeDummyMarker(51.066127, 13.741090,
                 "Bahnhof Dresden-Neustadt", "f16d3", "Gleis 1");
+        makeDummyMarker(51.072093, 13.746551,
+                "Bahnhof Dresden Bischofsplatz", "f16d4", "Gleis 2");
     }
 
     public void makeDummyMarker(double lati, double longi, String idMessung, String idMessobjekt, String nameMessobjekt) {
