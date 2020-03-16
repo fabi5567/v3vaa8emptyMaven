@@ -32,7 +32,7 @@ public class Marker { //TODO: implements Serializable, Cloneable ?
     //TODO: Overwrite?
     public String toString() {
         return "ID der Messung: " + this.idMessung + "<br> "
-                + "ID des Messobjekts: " + this.idMessobjekt + "<br> "
+                + "ID des Messobjektes: " + this.idMessobjekt + "<br> "
                 + "Name des Messobjektes: " + this.nameMessobjekt;
     }
 

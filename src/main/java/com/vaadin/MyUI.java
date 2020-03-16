@@ -6,16 +6,11 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.*;
 import org.vaadin.addon.leaflet.LMap;
 import org.vaadin.addon.leaflet.LMarker;
 import org.vaadin.addon.leaflet.LOpenStreetMapLayer;
 import org.vaadin.addon.leaflet.LTileLayer;
-import com.vaadin.ui.AbstractComponent; //fuer immediate
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -36,6 +31,8 @@ public class MyUI extends UI {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         // triggered when a user enters web application
+
+        /*
         final VerticalLayout layout = new VerticalLayout();
         
         final TextField name = new TextField();
@@ -47,7 +44,7 @@ public class MyUI extends UI {
             layout.addComponent(new Label("Thanks " + name.getValue() 
                     + ", it works!"));
         });
-
+        */
 
         // Geht nicht, da map nicht vom Typ component
         //layout.addComponents(name, button, map);
@@ -55,13 +52,8 @@ public class MyUI extends UI {
         map.addBaseLayer(osmTileLayer, "OSM");
 
         setMarkerHeadquarter();
-        setMarker1();
 
-        LMarker testMarker2 = new LMarker(51.065533, 13.773641);
-        map.addComponent(testMarker2);
-        testMarker2.setPopup("Messid: 5, Messobjektname = Hallo1, ");
-
-        makeDummyMarker1();
+        generateDummyMarker();
 
         map.setCenter(51.068656, 13.773228);
 
@@ -74,18 +66,17 @@ public class MyUI extends UI {
         map.addComponent(headquarterMarker);
     }
 
-    public void setMarker1() {
-        LMarker testMarker1 = new LMarker(50.258748, 12.040234);
-        map.addComponent(testMarker1);
+    public void generateDummyMarker(){
+        makeDummyMarker(51.066127, 13.741090,
+                "Bahnhof Dresden-Neustadt", "f16d3", "Gleis 1");
     }
 
-    public void makeDummyMarker1() {
-        Marker dummyMarkerData1 = new Marker(51.067239, 13.776474, "a", "b", "c");
-        LMarker dummyMarker1 = new LMarker(dummyMarkerData1.getLati(), dummyMarkerData1.getLongi());
-        dummyMarker1.setPopup(dummyMarkerData1.toString());
-        map.addComponent(dummyMarker1);
+    public void makeDummyMarker(double lati, double longi, String idMessung, String idMessobjekt, String nameMessobjekt) {
+        Marker dummyMarkerData = new Marker(lati, longi, idMessung, idMessobjekt, nameMessobjekt);
+        LMarker dummyMarker = new LMarker(dummyMarkerData.getLati(), dummyMarkerData.getLongi());
+        dummyMarker.setPopup(dummyMarkerData.toString());
+        map.addComponent(dummyMarker);
     }
-
 
 
 
